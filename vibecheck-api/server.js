@@ -1,10 +1,9 @@
 import express from "express";
 import requestLogger from "./LOG/logger.js"
-import globalErrorHandler from "./GLOBAL_ERROR/error_checker.js";
 const app=express();
 
 app.use(express.json());
-app.use(requestLogger);
+
 const vibe=[
     {
         "id":1,
@@ -18,12 +17,11 @@ const vibe=[
         "id":3,
         "song":"Gaaju Bomma"
     }
-]
-
+];
 
 app.get("/",(req,res)=>
 {
-    res.status(200).send("<h1>WELCOME TO THE WORLD OF TECHNOLOGY</h1>");
+    res.status(200).send("Welcome to the page");
 })
 
 app.get("/api/v1/vibes",(req,res)=>{
@@ -42,10 +40,7 @@ app.get("/api/v1/vibes/:id",(req,res)=>{
 
 });
 
-app.get(globalErrorHandler);
-
-app.listen(3001,()=>
+app.listen(5070,()=>
 {
-    console.log("Server blasting off on port 3001");
-});
-
+    console.log("🚀 Server blasting off on port 5070");
+})
